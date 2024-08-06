@@ -5,7 +5,7 @@ class RedisClient {
   constructor() {
     // Create a Redis client instance
     this.client = createClient();
-    this.isClientConnected = true;  
+    this.isClientConnected = true;
     // Handle any errors that occur with the Redis client
     this.client.on('error', (err) => {
       console.error('Redis client error:', err);
@@ -30,7 +30,8 @@ class RedisClient {
 
   // Async method to retrieve the value associated with a given key
   async get(key) {
-    return await this.getAsync(key);
+    const reply = await this.getAsync(key);
+    return reply;
   }
 
   // Async method to set a value for a given key with an expiration time in seconds
