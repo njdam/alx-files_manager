@@ -1,5 +1,6 @@
-import express from 'express';
-import { getStatus, getStats } from '../controllers/AppController.js';
+// eslint-disable-next-line no-unused-vars
+import express  from 'express';
+import { getStatus, getStats } from '../controllers/AppController';
 
 const router = express.Router();
 
