@@ -19,6 +19,7 @@ const VALID_FILE_TYPES = {
   file: 'file',
   image: 'image',
 };
+
 const ROOT_FOLDER_ID = 0;
 const DEFAULT_ROOT_FOLDER = 'files_manager';
 const mkDirAsync = promisify(mkdir);
