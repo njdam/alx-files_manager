@@ -1,13 +1,21 @@
+// Import the Express library to create an HTTP server
 import express from 'express';
-import indexRouter from './routes/index.js';
+// Import the function to start the server
+import startServer from './libs/boot';
+// Import the function to inject routes into the server
+import injectRoutes from './routes';
+// Import the function to inject middleware into the server
+import injectMiddlewares from './libs/middlewares';
 
-const app = express();
-const port = process.env.PORT || 5000;
+// Create an instance of an Express application
+const server = express();
 
-// Load routes
-app.use('/', indexRouter);
+// Inject middleware functions into the server
+injectMiddlewares(server);
+// Inject route handlers into the server
+injectRoutes(server);
+// Start the server
+startServer(server);
 
-// Start Server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// Export the server instance for use in other modules
+export default server;
